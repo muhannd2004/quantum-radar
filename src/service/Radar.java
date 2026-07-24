@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Radar {
-    List<Rule> rules;
-    RadarsManager radarsManager;
+    private final List<Rule> rules;
+    private final RadarsManager radarsManager;
 
     public Radar(List<Rule> rules, RadarsManager radarsManager) {
         this.rules = rules;
@@ -28,8 +28,11 @@ public class Radar {
                 totalFee += violation.getFee();
             }
         }
+
         Fine fine = new Fine(observation.getPlateNumber(), totalFee, violations);
-        radarsManager.addFine(fine);
+        if(!violations.isEmpty()){
+            radarsManager.addFine(fine);
+        }
         return fine;
     }
 }

@@ -47,7 +47,7 @@ public class RadarsManager {
             for (Fine fine : carFines.get(key)){
                 totalAmount += fine.getTotalFee();
             }
-            System.out.println(key + " ----------- " + totalAmount);
+            System.out.println(key + " ----------- " + String.format("%.2f", totalAmount) + " EGP");
         }
     }
 

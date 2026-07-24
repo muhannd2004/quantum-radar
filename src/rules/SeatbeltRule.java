@@ -15,7 +15,7 @@ public class SeatbeltRule implements Rule{
 
     @Override
     public Violation check(Observation observation) {
-        if(observation.getSeatbeltStatus() == SeatbeltStatus.NOT){
+        if(observation.getSeatbeltStatus() == SeatbeltStatus.NOT_FASTENED){
             String description = "Seatbelt not fastened : " + String.format("%.2f", this.fee) + " EGP";
             return new Violation(this.name, this.fee, description);
         }

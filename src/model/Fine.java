@@ -16,7 +16,7 @@ public class Fine {
 
     public void generateFine(){
         if (violations.isEmpty()) {
-            System.out.println("No Fines Yet");
+            System.out.println("No Fines");
             return;
         }
 
