@@ -21,8 +21,8 @@ public class Fine {
         }
 
         System.out.println(
-                "traffic fine for car " + this.plateNumber + "\n"
-                + "Total amount: " + String.format("%.2f", this.totalFee) + "\n"
+                "Traffic fine for car " + this.plateNumber + "\n"
+                + "Total amount: " + String.format("%.2f", this.totalFee) + " EGP\n"
                 + "Violations:\n- "
                 + violations.stream()
                         .map(Violation::getDescription)

@@ -39,8 +39,8 @@ System.out.println("================================");
 ## Sample Output
 ```bash
 *****************
-traffic fine for car 111
-Total amount: 100.00
+Traffic fine for car 111
+Total amount: 100.00 EGP
 Violations:
 - speed of 90.0 exceeded max allowed 80.0 : 100.00 EGP
 
