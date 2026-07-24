@@ -34,6 +34,27 @@ System.out.println("*****************");
 radarsManager.getViolations();
 System.out.println("================================");
 
+Observation o3 = new Observation("333", LocalDate.now(), CarType.PRIVATE, 80, SeatbeltStatus.NOT_FASTENED);
+Observation o4 = new Observation("444", LocalDate.now(), CarType.TRUCK, 90, SeatbeltStatus.NOT_FASTENED);
+Observation o5 = new Observation("555", LocalDate.now(), CarType.BUS, 100, SeatbeltStatus.FASTENED);
+
+System.out.println();
+System.out.println("*****************");
+radar.check(o3).generateFine();
+System.out.println();
+System.out.println("*****************");
+radar.check(o4).generateFine();
+System.out.println();
+System.out.println("*****************");
+radar.check(o5).generateFine();
+System.out.println();
+
+System.out.println("================================");
+radarsManager.getFines();
+System.out.println();
+System.out.println("*****************");
+radarsManager.getViolations();
+
 ```
 
 ## Sample Output
@@ -49,12 +70,45 @@ No Fines
 
 ================================
 Total Fine By Plate Number
-111 ----------- 100.0 EGP
+111 ----------- 100.00 EGP
 
 *****************
 Total Number Of Violation Per Rule
 private car Speed rule ----------- 1
 ================================
+
+*****************
+Traffic fine for car 333
+Total amount: 800.00 EGP
+Violations:
+- Seatbelt not fastened : 800.00 EGP
+
+*****************
+Traffic fine for car 444
+Total amount: 1800.00 EGP
+Violations:
+- Seatbelt not fastened : 800.00 EGP
+- speed of 90.0 exceeded max allowed 60.0 : 1000.00 EGP
+
+*****************
+Traffic fine for car 555
+Total amount: 500.00 EGP
+Violations:
+- speed of 100.0 exceeded max allowed 70.0 : 500.00 EGP
+
+================================
+Total Fine By Plate Number
+111 ----------- 100.00 EGP
+333 ----------- 800.00 EGP
+444 ----------- 1800.00 EGP
+555 ----------- 500.00 EGP
+
+*****************
+Total Number Of Violation Per Rule
+Bus Speed rule ----------- 1
+private car Speed rule ----------- 1
+Seatbelt Rule ----------- 2
+Truck Speed rule ----------- 1
 ```
 
 ## How to Run
